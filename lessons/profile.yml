@@ -5,7 +5,7 @@ lessons:
       type: bigquery
       method: oauth
       project: "{{ env_var('BIGQUERY_PROJECT') }}"
-      dataset: lessons_dev
+      dataset: "lessons_dev"
       threads: 32
       timeout_seconds: 300
       location: US
@@ -13,7 +13,7 @@ lessons:
       type: bigquery
       method: oauth
       project: "{{ env_var('BIGQUERY_PROJECT') }}"
-      dataset: lessons_test
+      dataset: "lessons_test"
       threads: 32
       timeout_seconds: 300
       location: US
@@ -21,7 +21,7 @@ lessons:
       type: bigquery
       method: oauth
       project: "{{ env_var('BIGQUERY_PROJECT') }}"
-      dataset: lessons_prod
+      dataset: "lessons_prod"
       threads: 32
       timeout_seconds: 300
       location: US
