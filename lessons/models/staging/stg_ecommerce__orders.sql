@@ -1,18 +1,13 @@
-{{
-    config(
-        materialized='table'
-    )
-}}
 
-with source as (
+{{ config(tags=["my_tag"])}}
 
-    select * from {{ source('thelook_ecommerce', 'orders') }}
+WITH source AS (
+        SELECT *
 
-),
+        FROM {{ source('thelook_ecommerce', 'orders') }}
+)
 
-renamed as (
-
-    select
+SELECT
         order_id,
         user_id,
         status,
@@ -21,10 +16,6 @@ renamed as (
         returned_at,
         shipped_at,
         delivered_at,
-        num_of_item
+        num_of_item as num_items_ordered
 
-    from source
-
-)
-
-select * from renamed
+FROM source

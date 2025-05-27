@@ -1,24 +1,18 @@
-with source as (
+WITH source AS (
+        SELECT *
 
-    select * from {{ source('thelook_ecommerce', 'products') }}
+        FROM {{ source('thelook_ecommerce', 'products') }}
+)
 
-),
-
-renamed as (
-
-    select
-        id,
+SELECT
+        id AS product_id,
         cost,
         category,
         name,
-        brand,
         retail_price,
         department,
         sku,
-        distribution_center_id
+        distribution_center_id,
+        brand
 
-    from source
-
-)
-
-select * from renamed
+FROM source

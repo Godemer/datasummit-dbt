@@ -2,14 +2,13 @@ version: 2
 
 models:
   - name: stg_ecommerce__orders
-    description: ""
-
+    description: "Table of 1 row per order"
     columns:
       - name: order_id
-        description: ""
+        description: "Primary key"
 
       - name: user_id
-        description: ""
+        description: "Customer id"
 
       - name: status
         description: ""
@@ -18,16 +17,16 @@ models:
         description: ""
 
       - name: created_at
-        description: ""
+        description: "When was the order created?"
 
       - name: returned_at
-        description: ""
-
+        description: "When was the order returned?"
+            
       - name: shipped_at
-        description: ""
+        description: "When was the order shipped?"
 
       - name: delivered_at
-        description: ""
+        description: "When was the order delivered?"
 
       - name: num_of_item
-        description: ""
+        description: "Number of items"

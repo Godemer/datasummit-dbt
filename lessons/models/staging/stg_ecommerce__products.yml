@@ -2,31 +2,19 @@ version: 2
 
 models:
   - name: stg_ecommerce__products
-    description: ""
+    description: "Products table"
     columns:
-      - name: id
-        description: ""
+      - name: product_id
+        description: "Primary key"
 
       - name: cost
-        description: ""
-
-      - name: category
-        description: ""
-
-      - name: name
-        description: ""
-
-      - name: brand
         description: ""
 
       - name: retail_price
         description: ""
 
       - name: department
-        description: ""
+        description: "Whether the item is Mensware or Womenswear"
 
-      - name: sku
-        description: ""
-
-      - name: distribution_center_id
-        description: ""
+      - name: brand
+        description: "Brand of the product"
