@@ -34,3 +34,6 @@ models:
     # Config indicated by + and applies to all files under models/example/
     staging:
       +materialized: table
+    +persist_docs: # Writes all of our column descriptions into BigQuery!
+      relation: true
+      columns: true
