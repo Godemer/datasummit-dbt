@@ -1,0 +1,27 @@
+lessons:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: "{{ env_var('BIGQUERY_PROJECT') }}"
+      dataset: "lessons_dev"
+      threads: 32
+      timeout_seconds: 300
+      location: US
+    test:
+      type: bigquery
+      method: oauth
+      project: "{{ env_var('BIGQUERY_PROJECT') }}"
+      dataset: "lessons_test"
+      threads: 32
+      timeout_seconds: 300
+      location: US
+    production:
+      type: bigquery
+      method: oauth
+      project: "{{ env_var('BIGQUERY_PROJECT') }}"
+      dataset: "lessons_prod"
+      threads: 32
+      timeout_seconds: 300
+      location: US
