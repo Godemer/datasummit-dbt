@@ -1,26 +1,27 @@
+version: 2
+
 models:
   - name: stg_ecommerce__order_items
-    description: ""
+    description: "Line items from orders"
     config:
       contract:
         enforced: true
     columns:
       - name: order_item_id
-        description: "Primary key"
         # Model tests (run AFTER model is built)
         tests:
-          - primary_key:
+          - not_null:
+              severity: error
+          - unique:
               severity: error
         # Model contract (run BEFORE model is built)
         data_type: INTEGER
         constraints:
+          # Note - we could get rid of the not_null check above as it basically duplicates the contract
           - type: not_null
 
       - name: order_id
-        description: ""
         data_type: INTEGER
-        constraints:
-          - type: not_null
         tests:
           - not_null
           - relationships:
@@ -28,10 +29,9 @@ models:
               field: order_id
 
       - name: user_id
-        description: ""
         data_type: INTEGER
-        constraints:
-          - type: not_null
+        tests:
+          - not_null
 
       - name: product_id
         data_type: INTEGER

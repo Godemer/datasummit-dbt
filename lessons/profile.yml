@@ -17,7 +17,7 @@ lessons:
       threads: 32
       timeout_seconds: 300
       location: US
-    prod:
+    production:
       type: bigquery
       method: oauth
       project: "{{ env_var('BIGQUERY_PROJECT') }}"

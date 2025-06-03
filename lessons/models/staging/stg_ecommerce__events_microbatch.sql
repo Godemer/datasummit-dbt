@@ -1,6 +1,12 @@
 {{
 	config(
-		materialized='table',
+		materialized='incremental',
+        incremental_strategy='microbatch',
+        event_time="created_at",
+        batch_size="day",
+        lookback=2,
+        begin='2025-01-01',
+		on_schema_change='sync_all_columns',
 		partition_by={
 			"field": "created_at",
 			"data_type": "timestamp",
@@ -34,11 +40,3 @@ SELECT
 
 
 FROM source
-
-{# Only runs this filter on an incremental run #}
-{% if is_incremental() %}
-
-{# The {{ this }} macro is essentially a {{ ref('') }} macro that allows for a circular reference #}
-WHERE created_at > (SELECT MAX(created_at) FROM {{ this }})
-
-{% endif %}
